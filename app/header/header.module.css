@@ -1,0 +1,27 @@
+.header {
+    display: flex;
+    background-color: rgb(32, 61, 192);
+    height: 64px;
+    align-items: center;
+    color: #fff;
+    justify-content: space-between;
+}
+
+.siteName {
+    font-size: large;
+    
+    margin-left: 32px;
+}
+
+.header nav {
+    min-width: 10%;
+    margin-right: 64px;
+}
+
+.header nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    
+    width: 100%;
+}

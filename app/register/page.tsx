@@ -1,26 +1,23 @@
 "use client";
 
-import { useState, ChangeEventHandler, ChangeEvent } from "react";
-import { UserRegisterForm as UserRegisterFormValues } from "../types/interfaces";
-import FormGroup from "../components/FormGroup";
+import { UserRegisterForm as UserRegisterFormValues } from "../../types/interfaces";
+import FormGroup from "../../components/FormGroup";
 import { Formik } from "formik";
-import { userRegisterSchema } from "../utils/validations";
+import { userRegisterSchema } from "../../utils/validations";
 import { postUser } from "../api/userApi";
-import { keysToSnakeCase } from "../utils/utils";
+import { convertUserRegisterForm } from "../../utils/caseConversion";
 
 const formInitialState: UserRegisterFormValues = {
     firstName: "",
     lastName: "",
     email: "",
     password: "",
+    phoneNumber: "",
 };
 
-export default function Login() {
-    const [formState, setFormState] = useState(formInitialState);
-
+export default function Register() {
     const handleOnSubmit = (values: UserRegisterFormValues) => {
-        console.log(values)
-        postUser(keysToSnakeCase(values))
+        postUser(convertUserRegisterForm(values))
     };
 
     return (
@@ -44,6 +41,13 @@ export default function Login() {
                                 labelText="Last Name:"
                                 fieldValue={formik.values.lastName}
                                 fieldName="lastName"
+                                onChange={formik.handleChange}
+                            />
+
+                            <FormGroup
+                                labelText="Phone number:"
+                                fieldValue={formik.values.phoneNumber}
+                                fieldName="phoneNumber"
                                 onChange={formik.handleChange}
                             />
 

@@ -1,11 +1,11 @@
-import { FormGroup } from "../types/interfaces"
+import { FormGroupProps } from "../types/interfaces"
 
 const FormGroup = ({
     labelText,
     fieldValue,
     fieldName,
     onChange
-}: FormGroup) => {
+}: FormGroupProps) => {
     return (
         <article className="form-group">
             <label htmlFor="">{labelText}</label>

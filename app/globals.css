@@ -106,6 +106,26 @@ body {
   margin: 0 10px;
 }
 
+.home-section {
+  width: 800px;
+  background: rgba(0, 0, 0, 0.8);
+  border: rgba(0, 0, 0, 0.9);
+  border-radius: 10px;
+  color: #fff;
+  padding: 60px 40px;
+  margin: 0 10px;
+}
+
+.home-section h1 {
+  font-size: 36px;
+  text-align: center;
+}
+
+.home-section p {
+  font-size: 18px;
+  text-align: center;
+}
+
 .form-container h1 {
   font-size: 36px;
   text-align: center;

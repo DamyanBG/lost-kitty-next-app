@@ -53,6 +53,7 @@ export default function Login() {
                                     onChange={formik.handleChange}
                                     placeholder="Password"
                                     iconClassName="bx bxs-lock-alt"
+                                    type="password"
                                 />
                             </section>
 

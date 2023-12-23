@@ -1,6 +1,7 @@
 import Image from "next/image"
-import { getAllCats } from "../api/catApi"
 import Link from "next/link"
+
+import { getAllCats } from "../api/catApi"
 
 export default async function Lost() {
     const cats = await getAllCats()
@@ -14,8 +15,6 @@ export default async function Lost() {
                             <Image
                                 src={cat.photos_urls[0]}
                                 alt="Cat"
-                                // width={400}
-                                // height={300}
                                 priority
                                 fill
                             />

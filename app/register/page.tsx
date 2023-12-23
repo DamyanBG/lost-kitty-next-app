@@ -24,7 +24,7 @@ export default function Register() {
     };
 
     return (
-        <main>
+        <main className={styles.main}>
             <section className={styles.formContainer}>
                 <Formik
                     initialValues={formInitialState}
@@ -41,12 +41,14 @@ export default function Register() {
                                         type="text"
                                         placeholder="First Name"
                                     />
+                                    <i className='bx bxs-user' />
                                 </article>
                                 <article className={styles.inputField}>
                                     <input
                                         type="text"
                                         placeholder="Last Name"
                                     />
+                                    <i className='bx bxs-user' />
                                 </article>
                             </section>
 
@@ -56,12 +58,14 @@ export default function Register() {
                                         type="text"
                                         placeholder="Email"
                                     />
+                                    <i className='bx bxs-envelope' />
                                 </article>
                                 <article className={styles.inputField}>
                                     <input
                                         type="text"
                                         placeholder="Phone Number"
                                     />
+                                    <i className='bx bxs-phone' />
                                 </article>
                             </section>
 
@@ -71,14 +75,30 @@ export default function Register() {
                                         type="password"
                                         placeholder="Password"
                                     />
+                                    <i className='bx bxs-lock-alt' />
                                 </article>
                                 <article className={styles.inputField}>
                                     <input
                                         type="password"
                                         placeholder="Confirm Password"
                                     />
+                                    <i className='bx bxs-lock-alt' />
                                 </article>
                             </section>
+
+                            <label htmlFor="">
+                                <input 
+                                    type="checkbox"
+                                />
+                                I agree with site's Terms and Conditions
+                            </label>
+
+                            <button
+                                type="submit"
+                                className={styles.btn}
+                            >
+                                Register
+                            </button>
 
 
                             {/* <FormGroup

@@ -4,6 +4,8 @@ import './globals.css'
 import Header from './header/header'
 import AuthProvider from '@/context/AuthProvider'
 
+import 'boxicons/css/boxicons.min.css'
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {

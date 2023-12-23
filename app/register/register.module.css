@@ -1,3 +1,99 @@
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
 .formContainer {
-    
+    width: 750px;
+    background: rgba(0, 0, 0, 0.5);
+    border: rgba(0, 0, 0, 0.9);
+    /* Decide to use blur or not */
+    backdrop-filter: blur(50px);
+    border-radius: 10px;
+    color: #fff;
+    padding: 40px 35px 55px;
+    margin: 0 10px;
+}
+
+.formContainer h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* can we remove the first class? */
+.formContainer .inputBox {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.formContainer .inputField {
+    position: relative;
+    width: 48%;
+    height: 50px;
+    margin: 13px 0;
+}
+
+.formContainer .inputField input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    outline: none;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 6px;
+    padding: 15px 15px 15px 40px;
+}
+
+.formContainer .inputField input::placeholder {
+    color: #fff;
+}
+
+.formContainer .inputField i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+
+.formContainer label {
+    display: inline-block;
+    font-size: 14.5px;
+    margin: 10px 0 23px;
+}
+
+.formContainer label input {
+    accent-color: #fff;
+    margin-right: 5px;
+}
+
+.formContainer .btn {
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+@media (max-width: 576px) {
+    .formContainer {
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+
+    .inputBox .inputField {
+        width: 100%;
+        margin: 10px 0;
+    }
 }

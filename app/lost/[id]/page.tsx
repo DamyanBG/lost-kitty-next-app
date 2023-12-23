@@ -1,27 +1,25 @@
+import { CatResponse } from "@/types/interfaces";
 import { CATS_URL, CAT_DETAILS_URL } from "@/utils/urls";
 import axios from "axios";
 import Image from "next/image";
 
-const getCatDetails = async (id) => {
-    const response = await axios.get(`${CAT_DETAILS_URL}/${id}`)
-    const cat = response.data
-    console.log("got")
-    return cat
+const getCatDetails = async (id: string) => {
+    const response = await axios.get(`${CAT_DETAILS_URL}/${id}`);
+    const cat: CatResponse = response.data;
+    return cat;
+};
+
+export async function generateStaticParams() {
+    const response = await axios.get(CATS_URL);
+    const cats: Array<CatResponse> = response.data;
+
+    return cats.map((cat) => ({
+        id: String(cat.id),
+    }));
 }
 
-// export async function generateStaticParams() {
-//     const response = await axios.get(CATS_URL)
-//     const cats = response.data
-
-//     return cats.map((cat) => ({
-//         id: String(cat.id),
-//     }))
-//   }
-
-export default async function LostCat({ params }: { params: { id: string, cat_name: string } }) {
-    const cat = await getCatDetails(params.id)
-
-    console.log(cat)
+export default async function LostCat({ params }: { params: { id: string } }) {
+    const cat = await getCatDetails(params.id);
 
     return (
         <main>

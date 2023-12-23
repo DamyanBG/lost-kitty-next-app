@@ -1,24 +1,38 @@
 "use client";
 
 import Link from "next/link";
-import { useContext } from "react";
 
 import styles from "./header.module.css";
-import { AuthContext } from "@/context/AuthProvider";
-import LogOut from "@/components/LogOut/LogOut";
+import UserNavPart from "@/components/UserNavPart/UserNavPart";
+import { useState } from "react";
+
 
 export default function Header() {
-    const { token } = useContext(AuthContext);
-    console.log(token)
-    const isAuthenticated = !!token;
+    const [isActive, setIsActive] = useState<boolean>(false)
+
+    const navBarClassName = isActive
+        ? `${styles.navBar} ${styles.active}`
+        : styles.navBar
+
+    const handleHamburgerClick = () => {
+        setIsActive(!isActive)
+    }
 
     return (
         <header className={styles.header}>
-            <section className={styles.siteName}>
-                <Link href="/">Lost Kitty</Link>
-            </section>
-            <nav className={styles.centerNav}>
+            <article className={styles.siteName}>
+                Lost Kitty
+            </article>
+            <article className={styles.hamburger} onClick={handleHamburgerClick}>
+                <article className={styles.line}></article>
+                <article className={styles.line}></article>
+                <article className={styles.line}></article>
+            </article>
+            <nav className={navBarClassName}>
                 <ul>
+                    <li>
+                        <Link className={styles.active} href="/">Home</Link>
+                    </li>
                     <li>
                         <Link href="/lost">Lost cats</Link>
                     </li>
@@ -28,28 +42,8 @@ export default function Header() {
                     <li>
                         <Link href="/add-cat">Add cat</Link>
                     </li>
+                    <UserNavPart />
                 </ul>
-            </nav>
-            <nav>
-                {isAuthenticated ? (
-                    <ul>
-                        <li>
-                            <Link href="/profile">Profile</Link>
-                        </li>
-                        <li>
-                            <LogOut />
-                        </li>
-                    </ul>
-                ) : (
-                    <ul>
-                        <li>
-                            <Link href="/register">Register</Link>
-                        </li>
-                        <li>
-                            <Link href="/login">Log In</Link>
-                        </li>
-                    </ul>
-                )}
             </nav>
         </header>
     );

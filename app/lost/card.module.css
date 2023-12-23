@@ -15,10 +15,23 @@
     justify-content: space-between;
     padding: 32px;
     margin-bottom: 32px;
-    align-items: center;
-    min-height: 300px;
+    min-height: 50vh;
 }
 
-.cardCard > article {
-    width: 100%;
+.imageContainer {
+    width: 60%;
+    height: 60%;
+    position: relative;
+    align-self: center;
+}
+
+.detailsLink {
+    border: 1px solid blue;
+    border-radius: 6px;
+    background-color: blue;
+    color: white;
+    height: 32px;
+    padding: 6px 12px;
+    width: 200px;
+    text-align: center;
 }

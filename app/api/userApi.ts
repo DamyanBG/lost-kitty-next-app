@@ -9,9 +9,7 @@ import {
 } from "../../utils/urls";
 
 export const postUser = async (userData: UserRegisterPost) => {
-    console.log(userData);
     const response = await axios.post(USER_REGISTER_URL, userData);
-    console.log(response);
 };
 
 export const loginUser = async (

@@ -1,11 +1,14 @@
 "use client";
 
+import { Formik } from "formik";
+
 import { UserRegisterForm as UserRegisterFormValues } from "../../types/interfaces";
 import FormGroup from "../../components/FormGroup";
-import { Formik } from "formik";
 import { userRegisterSchema } from "../../utils/validations";
 import { postUser } from "../api/userApi";
 import { convertUserRegisterForm } from "../../utils/caseConversion";
+import styles from "./register.module.css"
+
 
 const formInitialState: UserRegisterFormValues = {
     firstName: "",
@@ -22,7 +25,7 @@ export default function Register() {
 
     return (
         <main>
-            <section className="text-center">
+            <section className={styles.formContainer}>
                 <Formik
                     initialValues={formInitialState}
                     onSubmit={handleOnSubmit}
@@ -30,7 +33,55 @@ export default function Register() {
                 >
                     {(formik) => (
                         <form onSubmit={formik.handleSubmit}>
-                            <FormGroup
+                            <h1>Registration</h1>
+
+                            <section className={styles.inputBox}>
+                                <article className={styles.inputField}>
+                                    <input
+                                        type="text"
+                                        placeholder="First Name"
+                                    />
+                                </article>
+                                <article className={styles.inputField}>
+                                    <input
+                                        type="text"
+                                        placeholder="Last Name"
+                                    />
+                                </article>
+                            </section>
+
+                            <section className={styles.inputBox}>
+                                <article className={styles.inputField}>
+                                    <input
+                                        type="text"
+                                        placeholder="Email"
+                                    />
+                                </article>
+                                <article className={styles.inputField}>
+                                    <input
+                                        type="text"
+                                        placeholder="Phone Number"
+                                    />
+                                </article>
+                            </section>
+
+                            <section className={styles.inputBox}>
+                                <article className={styles.inputField}>
+                                    <input
+                                        type="password"
+                                        placeholder="Password"
+                                    />
+                                </article>
+                                <article className={styles.inputField}>
+                                    <input
+                                        type="password"
+                                        placeholder="Confirm Password"
+                                    />
+                                </article>
+                            </section>
+
+
+                            {/* <FormGroup
                                 labelText="First Name:"
                                 fieldValue={formik.values.firstName}
                                 fieldName="firstName"
@@ -64,7 +115,7 @@ export default function Register() {
                                 fieldName="password"
                                 onChange={formik.handleChange}
                             />
-                            <button type="submit">Submit</button>
+                            <button type="submit">Submit</button> */}
                         </form>
                     )}
                 </Formik>

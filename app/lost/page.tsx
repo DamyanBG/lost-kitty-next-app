@@ -1,31 +1,38 @@
 import Image from "next/image"
 import { getAllCats } from "../api/catApi"
-import styles from "./card.module.css"
 import Link from "next/link"
 
 export default async function Lost() {
     const cats = await getAllCats()
 
     return (
-        <main>
-            <section className={styles.cardContainer}>
+        <main className="cards-main">
+            <section className="cards-container">
                 {cats.map((cat) => (
-                    <article className={styles.catCard} key={cat.id}>
-                        <article className={styles.imageContainer}>
+                    <section className="card" key={cat.id}>
+                        <article className="card-image-container">
                             <Image
-                             src={cat.photos_urls[0]}
-                             alt="Cat"
+                                src={cat.photos_urls[0]}
+                                alt="Cat"
+                                // width={400}
+                                // height={300}
+                                priority
                                 fill
-                                object-fit="contain"
                             />
                         </article>
-                        <h2>{cat.cat_name}</h2>
-                        <p>Microchip: {cat.microchip}</p>
-                        <p>Passport ID: {cat.passport_id}</p>
+                        <article className="card-info">
+                            <h2>{cat.cat_name}</h2>
+                            <br />
+                            <p>Microchip: {cat.microchip}</p>
+                            <br />
+                            <p>Passport ID: {cat.passport_id}</p>
+                            <br />
+                            
+                            <Link className="" href={`/lost/${cat.id}`}>Details</Link>
+                            
+                        </article>
                         
-                        <Link className={styles.detailsLink} href={`/lost/${cat.id}`}>Details</Link>
-                        
-                    </article>
+                    </section>
                 ))}
             </section>
         </main>

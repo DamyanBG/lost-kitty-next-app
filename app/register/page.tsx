@@ -3,11 +3,12 @@
 import { Formik } from "formik";
 
 import { UserRegisterForm as UserRegisterFormValues } from "../../types/interfaces";
-import FormGroup from "../../components/FormGroup";
 import { userRegisterSchema } from "../../utils/validations";
 import { postUser } from "../api/userApi";
 import { convertUserRegisterForm } from "../../utils/caseConversion";
-import styles from "./register.module.css"
+import InputField from "@/components/form/InputField";
+import FormSubmitButton from "@/components/form/FormSubmitBtn";
+import { useRouter } from "next/navigation";
 
 
 const formInitialState: UserRegisterFormValues = {
@@ -15,17 +16,21 @@ const formInitialState: UserRegisterFormValues = {
     lastName: "",
     email: "",
     password: "",
+    confirmPassword: "",
     phoneNumber: "",
 };
 
 export default function Register() {
-    const handleOnSubmit = (values: UserRegisterFormValues) => {
-        postUser(convertUserRegisterForm(values))
+    const router = useRouter();
+
+    const handleOnSubmit = async (values: UserRegisterFormValues) => {
+        await postUser(convertUserRegisterForm(values))
+        router.push("/login");
     };
 
     return (
-        <main className={styles.main}>
-            <section className={styles.formContainer}>
+        <main className="main">
+            <section className="form-container">
                 <Formik
                     initialValues={formInitialState}
                     onSubmit={handleOnSubmit}
@@ -35,107 +40,67 @@ export default function Register() {
                         <form onSubmit={formik.handleSubmit}>
                             <h1>Registration</h1>
 
-                            <section className={styles.inputBox}>
-                                <article className={styles.inputField}>
-                                    <input
-                                        type="text"
-                                        placeholder="First Name"
-                                    />
-                                    <i className='bx bxs-user' />
-                                </article>
-                                <article className={styles.inputField}>
-                                    <input
-                                        type="text"
-                                        placeholder="Last Name"
-                                    />
-                                    <i className='bx bxs-user' />
-                                </article>
+                            <section className="input-section">
+                                <InputField
+                                    name="firstName"
+                                    value={formik.values.firstName}
+                                    onChange={formik.handleChange}
+                                    placeholder="First Name"
+                                    iconClassName="bx bxs-user"
+                                />
+                                <InputField
+                                    name="lastName"
+                                    value={formik.values.lastName}
+                                    onChange={formik.handleChange}
+                                    placeholder="Last Name"
+                                    iconClassName="bx bxs-user"
+                                />
                             </section>
 
-                            <section className={styles.inputBox}>
-                                <article className={styles.inputField}>
-                                    <input
-                                        type="text"
-                                        placeholder="Email"
-                                    />
-                                    <i className='bx bxs-envelope' />
-                                </article>
-                                <article className={styles.inputField}>
-                                    <input
-                                        type="text"
-                                        placeholder="Phone Number"
-                                    />
-                                    <i className='bx bxs-phone' />
-                                </article>
+                            <section className="input-section">
+                                <InputField
+                                    name="email"
+                                    value={formik.values.email}
+                                    onChange={formik.handleChange}
+                                    placeholder="Email"
+                                    iconClassName="bx bxs-envelope"
+                                />
+                                <InputField
+                                    name="phoneNumber"
+                                    value={formik.values.phoneNumber}
+                                    onChange={formik.handleChange}
+                                    placeholder="Phone Number"
+                                    iconClassName="bx bxs-phone"
+                                />
                             </section>
 
-                            <section className={styles.inputBox}>
-                                <article className={styles.inputField}>
-                                    <input
-                                        type="password"
-                                        placeholder="Password"
-                                    />
-                                    <i className='bx bxs-lock-alt' />
-                                </article>
-                                <article className={styles.inputField}>
-                                    <input
-                                        type="password"
-                                        placeholder="Confirm Password"
-                                    />
-                                    <i className='bx bxs-lock-alt' />
-                                </article>
+                            <section className="input-section">
+                                <InputField
+                                    name="password"
+                                    value={formik.values.password}
+                                    onChange={formik.handleChange}
+                                    placeholder="Password"
+                                    iconClassName="bx bxs-lock-alt"
+                                    type="password"
+                                />
+                                <InputField
+                                    name="confirmPassword"
+                                    value={formik.values.confirmPassword}
+                                    onChange={formik.handleChange}
+                                    placeholder="Confirm Password"
+                                    iconClassName="bx bxs-lock-alt"
+                                    type="password"
+                                />
                             </section>
 
                             <label htmlFor="">
                                 <input 
                                     type="checkbox"
                                 />
-                                I agree with site's Terms and Conditions
+                                I agree with site&apos;s Terms and Conditions
                             </label>
 
-                            <button
-                                type="submit"
-                                className={styles.btn}
-                            >
-                                Register
-                            </button>
-
-
-                            {/* <FormGroup
-                                labelText="First Name:"
-                                fieldValue={formik.values.firstName}
-                                fieldName="firstName"
-                                onChange={formik.handleChange}
-                            />
-
-                            <FormGroup
-                                labelText="Last Name:"
-                                fieldValue={formik.values.lastName}
-                                fieldName="lastName"
-                                onChange={formik.handleChange}
-                            />
-
-                            <FormGroup
-                                labelText="Phone number:"
-                                fieldValue={formik.values.phoneNumber}
-                                fieldName="phoneNumber"
-                                onChange={formik.handleChange}
-                            />
-
-                            <FormGroup
-                                labelText="Email:"
-                                fieldValue={formik.values.email}
-                                fieldName="email"
-                                onChange={formik.handleChange}
-                            />
-
-                            <FormGroup
-                                labelText="Password:"
-                                fieldValue={formik.values.password}
-                                fieldName="password"
-                                onChange={formik.handleChange}
-                            />
-                            <button type="submit">Submit</button> */}
+                            <FormSubmitButton text="Register" />
                         </form>
                     )}
                 </Formik>

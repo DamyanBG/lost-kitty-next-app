@@ -1,13 +1,15 @@
 "use client";
 
 import { Formik } from "formik";
+import { useContext } from "react";
+import { useRouter } from "next/navigation";
+
 import { UserLoginForm } from "../../types/interfaces";
 import { userLoginSchema } from "../../utils/validations";
-import FormGroup from "../../components/FormGroup";
 import { loginUser } from "../api/userApi";
-import { useContext } from "react";
 import { AuthContext } from "@/context/AuthProvider";
-import { useRouter } from 'next/navigation'
+import InputField from "@/components/form/InputField";
+import FormSubmitButton from "@/components/form/FormSubmitBtn";
 
 const formInitialState: UserLoginForm = {
     email: "",
@@ -15,19 +17,19 @@ const formInitialState: UserLoginForm = {
 };
 
 export default function Login() {
-    const { setToken } = useContext(AuthContext)
-    const router = useRouter()
+    const { setToken } = useContext(AuthContext);
+    const router = useRouter();
 
     const handleOnSubmit = async (values: UserLoginForm) => {
         const token = await loginUser(values);
-        setToken(token)
-        localStorage.setItem("token", JSON.stringify(token))
-        router.push("/")
+        setToken(token);
+        localStorage.setItem("token", JSON.stringify(token));
+        router.push("/");
     };
 
     return (
-        <main>
-            <section className="text-center">
+        <main className="main">
+            <section className="form-container">
                 <Formik
                     initialValues={formInitialState}
                     onSubmit={handleOnSubmit}
@@ -35,20 +37,26 @@ export default function Login() {
                 >
                     {(formik) => (
                         <form onSubmit={formik.handleSubmit}>
-                            <FormGroup
-                                labelText="Email:"
-                                fieldValue={formik.values.email}
-                                fieldName="email"
-                                onChange={formik.handleChange}
-                            />
+                            <h1>Log In</h1>
 
-                            <FormGroup
-                                labelText="Password:"
-                                fieldValue={formik.values.password}
-                                fieldName="password"
-                                onChange={formik.handleChange}
-                            />
-                            <button type="submit">Submit</button>
+                            <section className="input-section">
+                                <InputField
+                                    name="email"
+                                    value={formik.values.email}
+                                    onChange={formik.handleChange}
+                                    placeholder="Email"
+                                    iconClassName="bx bxs-envelope"
+                                />
+                                <InputField
+                                    name="password"
+                                    value={formik.values.password}
+                                    onChange={formik.handleChange}
+                                    placeholder="Password"
+                                    iconClassName="bx bxs-lock-alt"
+                                />
+                            </section>
+
+                            <FormSubmitButton text="Log In" />
                         </form>
                     )}
                 </Formik>

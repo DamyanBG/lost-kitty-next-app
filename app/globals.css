@@ -18,3 +18,173 @@ body {
 .text-center {
   text-align: center;
 }
+
+/* Form style start */
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.cards-main {
+  padding: 40px 120px;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+.card {
+  margin: 24px 2%;
+  width: 25%;
+  margin-bottom: 48px;
+  background: rgba(0, 0, 0, 0.9);
+  border: rgba(0, 0, 0, 1);
+  border-radius: 10px;
+  color: #fff;
+}
+
+.card-image-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.5/1;
+}
+
+.card-image-container img {
+  border-radius: 10px;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+}
+
+.card-info a {
+  text-align: center;
+  width: 40%;
+  min-width: fit-content;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #333;
+  font-weight: 600;
+  padding: 3px;
+  transition: 0.2s;
+}
+
+.card-info a:hover {
+  width: 42%;
+  transition: 0.2s;
+}
+
+.card-info a:active {
+  width: 40%;
+  background: rgb(36, 38, 184);
+  color: #fff;
+}
+
+.form-container {
+  width: 750px;
+  background: rgba(0, 0, 0, 0.8);
+  border: rgba(0, 0, 0, 0.9);
+  /* Decide to use blur or not */
+  /* backdrop-filter: blur(50px); */
+  border-radius: 10px;
+  color: #fff;
+  padding: 40px 35px 55px;
+  margin: 0 10px;
+}
+
+.form-container h1 {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* can we remove the first class? */
+.form-container .input-section {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.form-container .input-field {
+  position: relative;
+  width: 48%;
+  height: 50px;
+  margin: 13px 0;
+}
+
+.form-container .input-field input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  outline: none;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 6px;
+  padding: 15px 15px 15px 40px;
+}
+
+.form-container .input-field input::placeholder {
+  color: #fff;
+}
+
+.form-container .input-field i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+
+}
+
+.form-container label {
+  display: inline-block;
+  font-size: 14.5px;
+  margin: 10px 0 23px;
+}
+
+.form-container label input {
+  accent-color: #fff;
+  margin-right: 5px;
+}
+
+.form-container .btn {
+  width: 100%;
+  height: 45px;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+}
+
+@media (max-width: 576px) {
+  .form-container {
+      margin-top: 12px;
+      margin-bottom: 12px;
+  }
+
+  .input-section .input-field {
+      width: 100%;
+      margin: 10px 0;
+  }
+}
+
+/* Form style end */

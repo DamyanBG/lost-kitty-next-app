@@ -8,8 +8,9 @@ import { AddCatForm } from "@/types/interfaces";
 import { CatStatus } from "@/types/enums";
 import { postCat } from "../api/catApi";
 import { addCatSchema } from "@/utils/validations";
-import FormGroup from "@/components/FormGroup";
 import { AuthContext } from "@/context/AuthProvider";
+import FormSubmitButton from "@/components/form/FormSubmitBtn";
+import InputField from "@/components/form/InputField";
 
 const initialFormState: AddCatForm = {
     cat_name: "",
@@ -46,8 +47,8 @@ export default function AddCat() {
     };
 
     return (
-        <main>
-            <section className="text-center">
+        <main className="main">
+            <section className="form-container">
                 <Formik
                     initialValues={initialFormState}
                     onSubmit={handleOnSubmit}
@@ -55,26 +56,39 @@ export default function AddCat() {
                 >
                     {(formik) => (
                         <form onSubmit={formik.handleSubmit}>
-                            <FormGroup
-                                labelText="Cat Name:"
-                                fieldValue={formik.values.cat_name}
-                                fieldName="cat_name"
-                                onChange={formik.handleChange}
-                            />
+                            <section className="input-section">
+                                <InputField
+                                    name="cat_name"
+                                    value={formik.values.cat_name}
+                                    onChange={formik.handleChange}
+                                    placeholder="Cat Name"
+                                    iconClassName="bx bxs-cat"
+                                />
+                                <InputField
+                                    name="microchip"
+                                    value={formik.values.microchip}
+                                    onChange={formik.handleChange}
+                                    placeholder="Microchip"
+                                    iconClassName="bx bxs-microchip"
+                                />
+                            </section>
 
-                            <FormGroup
-                                labelText="Microchip:"
-                                fieldValue={formik.values.microchip}
-                                fieldName="microchip"
-                                onChange={formik.handleChange}
-                            />
-
-                            <FormGroup
-                                labelText="Passport ID:"
-                                fieldValue={formik.values.passport_id}
-                                fieldName="passport_id"
-                                onChange={formik.handleChange}
-                            />
+                            <section className="input-section">
+                                <InputField
+                                    name="passport_id"
+                                    value={formik.values.passport_id}
+                                    onChange={formik.handleChange}
+                                    placeholder="Passport ID"
+                                    iconClassName="bx bx-id-card"
+                                />
+                                {/* <InputField
+                                    name="microchip"
+                                    value={formik.values.microchip}
+                                    onChange={formik.handleChange}
+                                    placeholder="Microchip"
+                                    iconClassName="bx bxs-microchip"
+                                /> */}
+                            </section>
 
                             <article className="form-group">
                                 <label htmlFor="">Cat Photo:</label>
@@ -89,7 +103,7 @@ export default function AddCat() {
                                 />
                             </article>
 
-                            <button type="submit">Submit</button>
+                            <FormSubmitButton text="Add cat" />
                         </form>
                     )}
                 </Formik>

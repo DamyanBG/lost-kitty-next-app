@@ -8,6 +8,7 @@ export interface UserRegisterForm {
     email: string,
     password: string,
     phoneNumber: string,
+    confirmPassword: string,
 }
 
 export interface UserRegisterPost {
@@ -59,4 +60,13 @@ export interface CatResponse {
     id: number,
     owner_id: number,
     photos_urls: Array<string>
+}
+
+export interface InputFieldProps {
+    value: string,
+    name: string,
+    onChange: ChangeEventHandler,
+    placeholder: string,
+    iconClassName: string,
+    type?: string
 }

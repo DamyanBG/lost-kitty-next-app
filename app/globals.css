@@ -156,7 +156,7 @@ body {
   margin: 13px 0;
 }
 
-.form-container .input-field input {
+.form-container .input-field input, select {
   width: 100%;
   height: 100%;
   background: transparent;
@@ -166,6 +166,14 @@ body {
   color: #fff;
   border-radius: 6px;
   padding: 15px 15px 15px 40px;
+}
+
+.form-container .input-field select {
+  text-transform: capitalize;
+}
+
+.form-container .input-field select option {
+  color: #333;
 }
 
 .form-container .input-field input::placeholder {

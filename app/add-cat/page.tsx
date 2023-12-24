@@ -90,13 +90,18 @@ export default function AddCat() {
                                         placeholder="Passport ID"
                                         iconClassName="bx bx-id-card"
                                     />
-                                    {/* <InputField
-                                    name="microchip"
-                                    value={formik.values.microchip}
-                                    onChange={formik.handleChange}
-                                    placeholder="Microchip"
-                                    iconClassName="bx bxs-microchip"
-                                /> */}
+                                    <article className="input-field">
+                                        <select
+                                            name="status"
+                                            value={formik.values.status}
+                                            onChange={formik.handleChange}
+                                        >
+                                            {Object.values(CatStatus).map((status) => (
+                                                <option value={status} key={status}>{status}</option>
+                                            ))}
+                                        </select>
+                                        <i className="bx bxs-info-square" />
+                                    </article>
                                 </section>
 
                                 <article className="form-group">

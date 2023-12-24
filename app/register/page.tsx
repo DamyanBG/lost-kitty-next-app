@@ -38,7 +38,7 @@ export default function Register() {
         setIsAgreed(!isAgreed);
     };
 
-    const handleTermsClick = (values: UserRegisterFormValues) => {
+    const handleTermsClick = (values: UserRegisterFormValues) => () => {
         const { password, confirmPassword, ...valuesToStore } = values
         sessionStorage.setItem("formValues", JSON.stringify(valuesToStore))
     }
@@ -128,7 +128,7 @@ export default function Register() {
                                     onChange={handleAgreeChange}
                                 />
                                 I agree with site&apos;s{" "}
-                                <Link href="/terms-conditions" onClick={() => handleTermsClick(formik.values)}>
+                                <Link href="/terms-conditions" onClick={handleTermsClick(formik.values)}>
                                     Terms and Conditions
                                 </Link>
                             </label>

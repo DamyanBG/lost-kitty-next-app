@@ -1,10 +1,10 @@
-import Image from "next/image"
-import Link from "next/link"
+import Image from "next/image";
+import Link from "next/link";
 
-import { getLostCats } from "../api/catApi"
+import { getFoundCats } from "../api/catApi";
 
-export default async function Lost() {
-    const cats = await getLostCats()
+export default async function Found() {
+    const cats = await getFoundCats();
 
     return (
         <main className="cards-main">
@@ -26,14 +26,14 @@ export default async function Lost() {
                             <br />
                             <p>Passport ID: {cat.passport_id}</p>
                             <br />
-                            
-                            <Link className="" href={`/lost/${cat.id}`}>Details</Link>
-                            
+
+                            <Link className="" href={`/found/${cat.id}`}>
+                                Details
+                            </Link>
                         </article>
-                        
                     </section>
                 ))}
             </section>
         </main>
-    )
+    );
 }

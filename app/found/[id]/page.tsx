@@ -1,5 +1,5 @@
 import { CatResponse } from "@/types/interfaces";
-import { LOST_CATS_URL, CAT_DETAILS_URL } from "@/utils/urls";
+import { CAT_DETAILS_URL, FOUND_CATS_URL } from "@/utils/urls";
 import axios from "axios";
 import Image from "next/image";
 
@@ -10,7 +10,7 @@ const getCatDetails = async (id: string) => {
 };
 
 export async function generateStaticParams() {
-    const response = await axios.get(LOST_CATS_URL);
+    const response = await axios.get(FOUND_CATS_URL);
     const cats: Array<CatResponse> = response.data;
 
     return cats.map((cat) => ({
@@ -18,7 +18,7 @@ export async function generateStaticParams() {
     }));
 }
 
-export default async function LostCat({ params }: { params: { id: string } }) {
+export default async function FoundCat({ params }: { params: { id: string } }) {
     const cat = await getCatDetails(params.id);
 
     return (

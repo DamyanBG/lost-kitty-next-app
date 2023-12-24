@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import { AddCatForm, CatResponse } from "@/types/interfaces";
-import { ADD_CAT_URL, CATS_URL } from "@/utils/urls";
+import { ADD_CAT_URL, FOUND_CATS_URL, LOST_CATS_URL } from "@/utils/urls";
 import { Token } from "@/types/types";
 
 export const postCat = async (
@@ -18,8 +18,14 @@ export const postCat = async (
     return [catId, status];
 };
 
-export const getAllCats = async (): Promise<Array<CatResponse>> => {
-    const respons = await axios.get(CATS_URL)
+export const getLostCats = async (): Promise<Array<CatResponse>> => {
+    const respons = await axios.get(LOST_CATS_URL)
+    const cats: Array<CatResponse> = respons.data
+    return cats
+}
+
+export const getFoundCats = async (): Promise<Array<CatResponse>> => {
+    const respons = await axios.get(FOUND_CATS_URL)
     const cats: Array<CatResponse> = respons.data
     return cats
 }

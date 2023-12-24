@@ -1,12 +1,7 @@
 import axios from "axios";
-import {
-    UserLoginForm,
-    UserRegisterPost,
-} from "../../types/interfaces";
-import {
-    USER_LOGIN_URL,
-    USER_REGISTER_URL,
-} from "../../utils/urls";
+import { ProfileInfo, UserLoginForm, UserRegisterPost } from "../../types/interfaces";
+import { USER_LOGIN_URL, USER_REGISTER_URL, USER_URL } from "../../utils/urls";
+import { Token } from "@/types/types";
 
 export const postUser = async (userData: UserRegisterPost) => {
     const response = await axios.post(USER_REGISTER_URL, userData);
@@ -20,4 +15,12 @@ export const loginUser = async (
     return token;
 };
 
-
+export const getUserInfo = async (token: Token): Promise<ProfileInfo> => {
+    const response = await axios.get(USER_URL, {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
+    const userInfo = response.data;
+    return userInfo;
+};

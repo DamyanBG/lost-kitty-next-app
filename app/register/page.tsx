@@ -12,7 +12,6 @@ import InputField from "@/components/form/InputField";
 import FormSubmitButton from "@/components/form/FormSubmitBtn";
 import { wrapSubmitting } from "@/utils/wrappers";
 
-
 const formInitialState: UserRegisterFormValues = {
     firstName: "",
     lastName: "",
@@ -24,10 +23,10 @@ const formInitialState: UserRegisterFormValues = {
 
 export default function Register() {
     const router = useRouter();
-    const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
+    const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
     const handleOnSubmit = async (values: UserRegisterFormValues) => {
-        await postUser(convertUserRegisterForm(values))
+        await postUser(convertUserRegisterForm(values));
         router.push("/login");
     };
 
@@ -97,13 +96,14 @@ export default function Register() {
                             </section>
 
                             <label htmlFor="">
-                                <input 
-                                    type="checkbox"
-                                />
-                                I agree with site&apos;s Terms and Conditions
+                                <input type="checkbox" />I agree with
+                                site&apos;s Terms and Conditions
                             </label>
 
-                            <FormSubmitButton text="Register" disabled={isSubmitting} />
+                            <FormSubmitButton
+                                text="Register"
+                                disabled={isSubmitting}
+                            />
                         </form>
                     )}
                 </Formik>

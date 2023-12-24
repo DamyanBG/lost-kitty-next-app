@@ -16,6 +16,7 @@ const InputField = ({
                 name={name}
                 value={value}
                 onChange={onChange}
+                autoComplete="off"
             />
             <i className={iconClassName} />
         </article>

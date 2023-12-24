@@ -1,7 +1,7 @@
 "use client";
 
 import { Formik } from "formik";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
@@ -26,6 +26,7 @@ export default function Register() {
     const router = useRouter();
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
     const [isAgreed, setIsAgreed] = useState<boolean>(false);
+    const [formValues, setFormValues] = useState<UserRegisterFormValues>(formInitialState)
 
     const handleOnSubmit = async (values: UserRegisterFormValues) => {
         if (!isAgreed) return;
@@ -37,11 +38,29 @@ export default function Register() {
         setIsAgreed(!isAgreed);
     };
 
+    const handleTermsClick = (values: UserRegisterFormValues) => {
+        const { password, confirmPassword, ...valuesToStore } = values
+        sessionStorage.setItem("formValues", JSON.stringify(valuesToStore))
+    }
+
+    useEffect(() => {
+        const storedValues = sessionStorage.getItem("formValues")
+        if (storedValues) {
+            const valuesToSet = {
+                ...JSON.parse(storedValues),
+                password: "",
+                confirmPassword: ""
+            }
+            setFormValues(valuesToSet)
+        }   
+    }, [])
+
     return (
         <main className="main">
             <section className="form-container">
                 <Formik
-                    initialValues={formInitialState}
+                    initialValues={formValues}
+                    enableReinitialize
                     onSubmit={wrapSubmitting(setIsSubmitting, handleOnSubmit)}
                     validationSchema={userRegisterSchema}
                 >
@@ -109,7 +128,7 @@ export default function Register() {
                                     onChange={handleAgreeChange}
                                 />
                                 I agree with site&apos;s{" "}
-                                <Link href="/terms-conditions">
+                                <Link href="/terms-conditions" onClick={() => handleTermsClick(formik.values)}>
                                     Terms and Conditions
                                 </Link>
                             </label>

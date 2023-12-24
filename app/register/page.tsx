@@ -3,6 +3,7 @@
 import { Formik } from "formik";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 import { UserRegisterForm as UserRegisterFormValues } from "../../types/interfaces";
 import { userRegisterSchema } from "../../utils/validations";
@@ -24,10 +25,16 @@ const formInitialState: UserRegisterFormValues = {
 export default function Register() {
     const router = useRouter();
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+    const [isAgreed, setIsAgreed] = useState<boolean>(false);
 
     const handleOnSubmit = async (values: UserRegisterFormValues) => {
+        if (!isAgreed) return;
         await postUser(convertUserRegisterForm(values));
         router.push("/login");
+    };
+
+    const handleAgreeChange = () => {
+        setIsAgreed(!isAgreed);
     };
 
     return (
@@ -96,8 +103,15 @@ export default function Register() {
                             </section>
 
                             <label htmlFor="">
-                                <input type="checkbox" />I agree with
-                                site&apos;s Terms and Conditions
+                                <input
+                                    type="checkbox"
+                                    checked={isAgreed}
+                                    onChange={handleAgreeChange}
+                                />
+                                I agree with site&apos;s{" "}
+                                <Link href="/terms-conditions">
+                                    Terms and Conditions
+                                </Link>
                             </label>
 
                             <FormSubmitButton

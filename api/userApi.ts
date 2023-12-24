@@ -1,6 +1,6 @@
 import axios from "axios";
-import { ProfileInfo, UserLoginForm, UserRegisterPost } from "../../types/interfaces";
-import { USER_LOGIN_URL, USER_REGISTER_URL, USER_URL } from "../../utils/urls";
+import { ProfileInfo, UserLoginForm, UserRegisterPost } from "../types/interfaces";
+import { USER_LOGIN_URL, USER_REGISTER_URL, USER_URL } from "../utils/urls";
 import { Token } from "@/types/types";
 
 export const postUser = async (userData: UserRegisterPost) => {

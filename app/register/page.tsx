@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 
 import { UserRegisterForm as UserRegisterFormValues } from "../../types/interfaces";
 import { userRegisterSchema } from "../../utils/validations";
-import { postUser } from "../api/userApi";
+import { postUser } from "../../api/userApi";
 import { convertUserRegisterForm } from "../../utils/caseConversion";
 import InputField from "@/components/form/InputField";
 import FormSubmitButton from "@/components/form/FormSubmitBtn";

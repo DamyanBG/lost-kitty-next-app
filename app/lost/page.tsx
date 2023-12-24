@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 
-import { getLostCats } from "../api/catApi"
+import { getLostCats } from "../../api/catApi"
 
 export default async function Lost() {
     const cats = await getLostCats()

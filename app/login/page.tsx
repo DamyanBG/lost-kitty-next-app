@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 
 import { UserLoginForm } from "../../types/interfaces";
 import { userLoginSchema } from "../../utils/validations";
-import { loginUser } from "../api/userApi";
+import { loginUser } from "../../api/userApi";
 import { AuthContext } from "@/context/AuthProvider";
 import InputField from "@/components/form/InputField";
 import FormSubmitButton from "@/components/form/FormSubmitBtn";

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { getFoundCats } from "../api/catApi";
+import { getFoundCats } from "../../api/catApi";
 
 export default async function Found() {
     const cats = await getFoundCats();

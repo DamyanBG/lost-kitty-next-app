@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react";
 
 import ReadOnlyInput from "@/components/form/ReadOnlyInput";
 import { AuthContext } from "@/context/AuthProvider";
-import { getUserInfo } from "../api/userApi"; 
+import { getUserInfo } from "../../api/userApi"; 
 import { ProfileInfo } from "@/types/interfaces";
 
 const infoInitialState: ProfileInfo = {

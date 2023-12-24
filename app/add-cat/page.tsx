@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 
 import { AddCatForm, SubmittingFunction } from "@/types/interfaces";
 import { CatStatus } from "@/types/enums";
-import { postCat } from "../api/catApi";
+import { postCat } from "../../api/catApi";
 import { addCatSchema } from "@/utils/validations";
 import { AuthContext } from "@/context/AuthProvider";
 import FormSubmitButton from "@/components/form/FormSubmitBtn";

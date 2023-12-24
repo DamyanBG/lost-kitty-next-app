@@ -205,6 +205,10 @@ body {
   font-weight: 600;
 }
 
+.form-container .btn:disabled {
+  color: #d6d1d1;
+} 
+
 @media (max-width: 576px) {
   .form-container {
       margin-top: 12px;
@@ -218,3 +222,11 @@ body {
 }
 
 /* Form style end */
+
+.not-authenticated-message {
+  text-align: center;
+}
+
+.not-authenticated-message p {
+  font-size: 24px;
+}

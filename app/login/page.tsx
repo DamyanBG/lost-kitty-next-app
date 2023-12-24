@@ -1,7 +1,7 @@
 "use client";
 
 import { Formik } from "formik";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { UserLoginForm } from "../../types/interfaces";
@@ -10,6 +10,7 @@ import { loginUser } from "../api/userApi";
 import { AuthContext } from "@/context/AuthProvider";
 import InputField from "@/components/form/InputField";
 import FormSubmitButton from "@/components/form/FormSubmitBtn";
+import { wrapSubmitting } from "@/utils/wrappers";
 
 const formInitialState: UserLoginForm = {
     email: "",
@@ -19,6 +20,7 @@ const formInitialState: UserLoginForm = {
 export default function Login() {
     const { setToken } = useContext(AuthContext);
     const router = useRouter();
+    const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
 
     const handleOnSubmit = async (values: UserLoginForm) => {
         const token = await loginUser(values);
@@ -32,7 +34,7 @@ export default function Login() {
             <section className="form-container">
                 <Formik
                     initialValues={formInitialState}
-                    onSubmit={handleOnSubmit}
+                    onSubmit={wrapSubmitting(setIsSubmitting, handleOnSubmit)}
                     validationSchema={userLoginSchema}
                 >
                     {(formik) => (
@@ -57,7 +59,7 @@ export default function Login() {
                                 />
                             </section>
 
-                            <FormSubmitButton text="Log In" />
+                            <FormSubmitButton text="Log In" disabled={isSubmitting} />
                         </form>
                     )}
                 </Formik>

@@ -70,3 +70,19 @@ export interface InputFieldProps {
     iconClassName: string,
     type?: string
 }
+
+export interface FormSubmitBtnProps {
+    text: string,
+    disabled: boolean
+}
+
+export interface SubmittingFunction {
+    (...args: any[]): Promise<void>;
+  }
+  
+export interface WrapSubmitting {
+(
+    setIsSubmitting: Dispatch<SetStateAction<boolean>>,
+    submittingFunc: SubmittingFunction
+): (...args: any[]) => Promise<void>;
+}

@@ -1,9 +1,13 @@
+import { FormSubmitBtnProps } from "@/types/interfaces"
+
 const FormSubmitButton = ({
-    text
-}: { text: string }) => (
+    text,
+    disabled
+}: FormSubmitBtnProps) => (
     <button
         type="submit"
         className="btn"
+        disabled={disabled}
     >
         {text}
     </button>

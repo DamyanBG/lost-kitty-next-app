@@ -1,6 +1,8 @@
 "use client";
 
 import { Formik } from "formik";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 import { UserRegisterForm as UserRegisterFormValues } from "../../types/interfaces";
 import { userRegisterSchema } from "../../utils/validations";
@@ -8,7 +10,7 @@ import { postUser } from "../api/userApi";
 import { convertUserRegisterForm } from "../../utils/caseConversion";
 import InputField from "@/components/form/InputField";
 import FormSubmitButton from "@/components/form/FormSubmitBtn";
-import { useRouter } from "next/navigation";
+import { wrapSubmitting } from "@/utils/wrappers";
 
 
 const formInitialState: UserRegisterFormValues = {
@@ -22,6 +24,7 @@ const formInitialState: UserRegisterFormValues = {
 
 export default function Register() {
     const router = useRouter();
+    const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
 
     const handleOnSubmit = async (values: UserRegisterFormValues) => {
         await postUser(convertUserRegisterForm(values))
@@ -33,7 +36,7 @@ export default function Register() {
             <section className="form-container">
                 <Formik
                     initialValues={formInitialState}
-                    onSubmit={handleOnSubmit}
+                    onSubmit={wrapSubmitting(setIsSubmitting, handleOnSubmit)}
                     validationSchema={userRegisterSchema}
                 >
                     {(formik) => (
@@ -100,7 +103,7 @@ export default function Register() {
                                 I agree with site&apos;s Terms and Conditions
                             </label>
 
-                            <FormSubmitButton text="Register" />
+                            <FormSubmitButton text="Register" disabled={isSubmitting} />
                         </form>
                     )}
                 </Formik>

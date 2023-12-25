@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import './globals.css'
+
 import Header from '../components/header/header'
 import AuthProvider from '@/context/AuthProvider'
 
+import './globals.css'
 import 'boxicons/css/boxicons.min.css'
+import Footer from '@/components/footer/footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,6 +26,7 @@ export default function RootLayout({
         <AuthProvider>
           <Header />
           {children}
+          <Footer />
         </AuthProvider>
       </body>
     </html>

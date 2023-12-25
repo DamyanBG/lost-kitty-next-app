@@ -1,0 +1,33 @@
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background: #11101b;
+    color: #fefefe;
+    padding: 16px 48px;
+}
+
+.footer h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.footer hr {
+    margin-bottom: 12px;
+}
+
+.footer p {
+    margin-bottom: 8px;
+}
+
+@media (max-width: 700px)  {
+    .footer {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .footer h3 {
+        margin-top: 12px;
+    }
+}

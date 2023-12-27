@@ -22,19 +22,26 @@ export default async function LostCat({ params }: { params: { id: string } }) {
     const cat = await getCatDetails(params.id);
 
     return (
-        <main>
-            <section className="text-center">
-                <p>{cat.cat_name}</p>
-                <p>{cat.microchip}</p>
-                <p>{cat.passport_id}</p>
-                <div>
-                    <Image
-                        src={cat.photos_urls[0]}
-                        width={200}
-                        height={200}
-                        alt="Cat"
-                    />
-                </div>
+        <main className="details-main">
+            <section className="details-section">
+                <article className="details-image-container">
+                    <Image src={cat.photos_urls[0]} alt="Cat" priority fill />
+                </article>
+                <article className="details">
+                    <h3>Cat name:</h3>
+                    <br />
+                    <p>{cat.cat_name}</p>
+                    <br />
+                    <br />
+                    <h3>Microchip:</h3>
+                    <br />
+                    <p>{cat.microchip}</p>
+                    <br />
+                    <br />
+                    <h3>Passport ID:</h3>
+                    <br />
+                    <p>{cat.passport_id}</p>
+                </article>
             </section>
         </main>
     );

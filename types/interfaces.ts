@@ -50,6 +50,7 @@ export interface AddCatForm {
     passport_id: string;
     status: CatStatus;
     photos: Array<string>;
+    area: string;
 }
 
 export interface CatResponse {

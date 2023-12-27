@@ -20,6 +20,7 @@ const initialFormState: AddCatForm = {
     passport_id: "",
     status: CatStatus.Lost,
     photos: [""],
+    area: "",
 };
 
 export default function AddCat() {
@@ -102,6 +103,16 @@ export default function AddCat() {
                                         </select>
                                         <i className="bx bxs-info-square" />
                                     </article>
+                                </section>
+
+                                <section className="input-section">
+                                    <InputField
+                                        name="area"
+                                        value={formik.values.area}
+                                        onChange={formik.handleChange}
+                                        placeholder="Area"
+                                        iconClassName="bx bx-map"
+                                    /> 
                                 </section>
 
                                 <article className="form-group">

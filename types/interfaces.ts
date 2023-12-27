@@ -73,9 +73,17 @@ export interface InputFieldProps {
     type?: string;
 }
 
+export interface SelectFieldProps {
+    value: string;
+    name: string;
+    onChange: ChangeEventHandler;
+    iconClassName: string;
+    children: ReactNode;
+}
+
 export interface FormSubmitBtnProps {
     text: string;
-    disabled: boolean;
+    disabled?: boolean;
 }
 
 export interface SubmittingFunction {
@@ -100,4 +108,14 @@ export interface ProfileInfo {
     first_name: string,
     last_name: string,
     phone_number: string,
+}
+
+export interface SearchByFormValues {
+    id: string,
+    searchBy: string,
+}
+
+export interface SearchResult {
+    id: string | undefined,
+    message: string | undefined,
 }

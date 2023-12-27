@@ -1,26 +1,26 @@
 import axios from "axios";
 
-import { AddCatForm, CatResponse } from "@/types/interfaces";
-import { ADD_CAT_URL, FOUND_CATS_URL, LOST_CATS_URL } from "@/utils/urls";
-import { Token } from "@/types/types";
+import { AddCatForm, CatResponse, SearchResult } from "@/types/interfaces";
+import { ADD_CAT_URL, FOUND_CATS_URL, LOST_CATS_URL, SEACH_BY_PASSPORT_ID_URL as SEARCH_BY_PASSPORT_ID_URL, SEACH_BY_MICROCHIP_URL as SEARCH_BY_MICROCHIP_URL } from "@/utils/urls";
+import { SearchFunc, Token } from "@/types/types";
 
 export const postCat = async (
     catData: AddCatForm,
     token: Token
 ): Promise<string> => {
-    const respons = await axios.post(ADD_CAT_URL, catData, {
+    const response = await axios.post(ADD_CAT_URL, catData, {
         headers: {
             Authorization: `Bearer ${token}`,
         },
     });
-    const cat = respons.data;
+    const cat = response.data;
     const { id: catId } = cat
     return catId;
 };
 
 export const getLostCats = async (): Promise<Array<CatResponse>> => {
-    const respons = await axios.get(LOST_CATS_URL)
-    const cats: Array<CatResponse> = respons.data
+    const response = await axios.get(LOST_CATS_URL)
+    const cats: Array<CatResponse> = response.data
     return cats
 }
 
@@ -28,4 +28,16 @@ export const getFoundCats = async (): Promise<Array<CatResponse>> => {
     const respons = await axios.get(FOUND_CATS_URL)
     const cats: Array<CatResponse> = respons.data
     return cats
+}
+
+export const searchCatByMicrochip = async (microchip: string): Promise<SearchResult> => {
+    const response = await axios.get(`${SEARCH_BY_MICROCHIP_URL}/${microchip}`)
+    const { id, message } = response.data
+    return { id, message }
+}
+
+export const searchCatByPassportId = async (passportId: string): Promise<SearchResult> => {
+    const response = await axios.get(`${SEARCH_BY_PASSPORT_ID_URL}/${passportId}`)
+    const { id, message } = response.data
+    return { id, message }
 }

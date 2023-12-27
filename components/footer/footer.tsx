@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 import styles from "./footer.module.css"
 
 const Footer = () => {
@@ -15,13 +17,13 @@ const Footer = () => {
                 <hr />
                 <p>How to post lost cat</p>
                 <p>How to post found cat</p>
-                <p>Search by Microchip or Passport ID</p>
+                <p><Link href="/search">Search by Microchip or Passport ID</Link></p>
             </section>
             <section>
                 <h3>Connect with us</h3>
                 <hr />
-                <p>Facebook</p>
-                <p>Instagram</p>
+                <p><i className="bx bxl-facebook-square" /> Facebook</p>
+                <p><i className="bx bxl-instagram-alt" /> Instagram</p>
             </section>
         </footer>
     )

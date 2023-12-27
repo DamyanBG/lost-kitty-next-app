@@ -27,7 +27,7 @@ export default async function Found() {
                             <p>Passport ID: {cat.passport_id}</p>
                             <br />
 
-                            <Link className="" href={`/found/${cat.id}`}>
+                            <Link className="" href={`/details/${cat.id}`}>
                                 Details
                             </Link>
                         </article>

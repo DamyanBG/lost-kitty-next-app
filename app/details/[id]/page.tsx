@@ -41,6 +41,11 @@ export default async function LostCat({ params }: { params: { id: string } }) {
                     <h3>Passport ID:</h3>
                     <br />
                     <p>{cat.passport_id}</p>
+                    <br />
+                    <br />
+                    <h3>{cat.status} in area:</h3>
+                    <br />
+                    <p>{cat.area}</p>
                 </article>
             </section>
         </main>

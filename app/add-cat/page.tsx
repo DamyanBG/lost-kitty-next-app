@@ -31,8 +31,8 @@ export default function AddCat() {
     const isAuthenticated = !!token;
 
     const handleOnSubmit: SubmittingFunction = async (values: AddCatForm) => {
-        const [catId, status] = await postCat(values, token);
-        router.push(`/${status}/${catId}`);
+        const catId = await postCat(values, token);
+        router.push(`/details/${catId}`);
     };
 
     const handleOnFileUpload = (

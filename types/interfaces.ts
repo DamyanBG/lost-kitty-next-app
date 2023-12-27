@@ -61,6 +61,7 @@ export interface CatResponse {
     id: number;
     owner_id: number;
     photos_urls: Array<string>;
+    area: string;
 }
 
 export interface InputFieldProps {

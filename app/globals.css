@@ -298,6 +298,7 @@ select {
 
 .details h3 {
   font-size: 32px;
+  text-transform: capitalize;
 }
 
 .details p {

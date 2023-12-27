@@ -7,15 +7,15 @@ import { Token } from "@/types/types";
 export const postCat = async (
     catData: AddCatForm,
     token: Token
-): Promise<Array<string>> => {
+): Promise<string> => {
     const respons = await axios.post(ADD_CAT_URL, catData, {
         headers: {
             Authorization: `Bearer ${token}`,
         },
     });
     const cat = respons.data;
-    const { id: catId, status} = cat
-    return [catId, status];
+    const { id: catId } = cat
+    return catId;
 };
 
 export const getLostCats = async (): Promise<Array<CatResponse>> => {

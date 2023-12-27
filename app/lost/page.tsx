@@ -27,7 +27,7 @@ export default async function Lost() {
                             <p>Passport ID: {cat.passport_id}</p>
                             <br />
                             
-                            <Link className="" href={`/lost/${cat.id}`}>Details</Link>
+                            <Link className="" href={`/details/${cat.id}`}>Details</Link>
                             
                         </article>
                         

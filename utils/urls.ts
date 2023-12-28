@@ -9,3 +9,5 @@ export const LOST_CATS_URL = `${HOST_URL}/lost-cats`
 export const FOUND_CATS_URL = `${HOST_URL}/found-cats`
 export const SEACH_BY_MICROCHIP_URL = `${HOST_URL}/microchip`
 export const SEACH_BY_PASSPORT_ID_URL = `${HOST_URL}/passport-id`
+export const TOTAL_LOST_URL = `${HOST_URL}/total/lost`
+export const TOTAL_FOUND_URL = `${HOST_URL}/total/found`

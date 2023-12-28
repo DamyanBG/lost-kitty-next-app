@@ -47,6 +47,7 @@ body {
 
 .cards-main {
     padding: 40px 120px;
+    min-height: 80vh;
 }
 
 .cards-container {
@@ -54,8 +55,6 @@ body {
     justify-content: space-between;
     flex-direction: row;
     flex-wrap: wrap;
-    /* justify-content: center; */
-    /* align-items: center; */
 }
 
 .card {
@@ -109,6 +108,21 @@ body {
     width: 40%;
     background: rgb(36, 38, 184);
     color: #fff;
+}
+
+@media (max-width: 900px) {
+    .cards-main {
+        padding: 24px;
+    }
+
+    .cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 80%;
+    }
 }
 
 /* Card style end */
@@ -308,4 +322,25 @@ select {
 .search-result {
     margin-top: 24px;
     text-align: center;
+}
+
+.pagination-section {
+    /* background: rgba(0, 0, 0, 0.8); */
+    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination-section article {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid black;
+    width: 24px;
+    text-align: center;
+}
+
+.pagination-section article a {
+    color: #fff;
 }

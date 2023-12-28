@@ -119,3 +119,16 @@ export interface SearchResult {
     id: string | undefined,
     message: string | undefined,
 }
+
+export interface CatCardProps {
+    photoUrl: string,
+    catName: string,
+    microchip: string,
+    passportId: string,
+    catId: number,
+}
+
+export interface CatCardsContainerProps {
+    page: number,
+    getPaginatedCatsFunc: (offset: number, limit: number) => Promise<CatResponse[]>
+}

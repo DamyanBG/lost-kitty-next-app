@@ -1,12 +1,12 @@
 "use client";
 
-import { useContext } from "react";
+import { MouseEventHandler, useContext } from "react";
 import Link from "next/link";
 
 import { AuthContext } from "@/context/AuthProvider";
 import LogOut from "../LogOut/LogOut";
 
-const UserNavPart = () => {
+const UserNavPart = ({ handleLinkClick }: { handleLinkClick: MouseEventHandler}) => {
     const { token } = useContext(AuthContext);
     const isAuthenticated = !!token;
 
@@ -14,7 +14,7 @@ const UserNavPart = () => {
         return (
             <>
                 <li>
-                    <Link href="/profile">Profile</Link>
+                    <Link onClick={handleLinkClick} href="/profile">Profile</Link>
                 </li>
                 <li>
                     <LogOut />
@@ -26,10 +26,10 @@ const UserNavPart = () => {
     return (
         <>
             <li>
-                <Link href="/register">Register</Link>
+                <Link onClick={handleLinkClick} href="/register">Register</Link>
             </li>
             <li>
-                <Link href="/login">Log In</Link>
+                <Link onClick={handleLinkClick} href="/login">Log In</Link>
             </li>
         </>
     );

@@ -18,6 +18,10 @@ export default function Header() {
         setIsActive(!isActive)
     }
 
+    const handleLinkClick = () => {
+        setIsActive(false)
+    }
+
     return (
         <header className={styles.header}>
             <article className={styles.siteName}>
@@ -31,18 +35,18 @@ export default function Header() {
             <nav className={navBarClassName}>
                 <ul>
                     <li>
-                        <Link className={styles.active} href="/">Home</Link>
+                        <Link onClick={handleLinkClick} className={styles.active} href="/">Home</Link>
                     </li>
                     <li>
-                        <Link href="/lost">Lost cats</Link>
+                        <Link onClick={handleLinkClick} href="/lost">Lost cats</Link>
                     </li>
                     <li>
-                        <Link href="/found">Found cats</Link>
+                        <Link onClick={handleLinkClick} href="/found">Found cats</Link>
                     </li>
                     <li>
-                        <Link href="/add-cat">Add cat</Link>
+                        <Link onClick={handleLinkClick} href="/add-cat">Add cat</Link>
                     </li>
-                    <UserNavPart />
+                    <UserNavPart handleLinkClick={handleLinkClick} />
                 </ul>
             </nav>
         </header>

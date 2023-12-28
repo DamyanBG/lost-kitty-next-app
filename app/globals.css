@@ -325,7 +325,6 @@ select {
 }
 
 .pagination-section {
-    /* background: rgba(0, 0, 0, 0.8); */
     color: #fff;
     margin-left: auto;
     margin-right: auto;
@@ -337,8 +336,11 @@ select {
 .pagination-section article {
     background: rgba(0, 0, 0, 0.8);
     border: 1px solid black;
-    width: 24px;
-    text-align: center;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .pagination-section article a {

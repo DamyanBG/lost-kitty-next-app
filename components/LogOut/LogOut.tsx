@@ -22,7 +22,7 @@ export default function LogOut() {
             className={styles.logout}
             onClick={handleClick}
         >
-            Log Out
+            Изход
         </Link>
     )
 }

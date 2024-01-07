@@ -71,14 +71,14 @@ export default function AddCat() {
                                         name="cat_name"
                                         value={formik.values.cat_name}
                                         onChange={formik.handleChange}
-                                        placeholder="Cat Name"
+                                        placeholder="Име"
                                         iconClassName="bx bxs-cat"
                                     />
                                     <InputField
                                         name="microchip"
                                         value={formik.values.microchip}
                                         onChange={formik.handleChange}
-                                        placeholder="Microchip"
+                                        placeholder="Микрочип"
                                         iconClassName="bx bxs-microchip"
                                     />
                                 </section>
@@ -88,7 +88,7 @@ export default function AddCat() {
                                         name="passport_id"
                                         value={formik.values.passport_id}
                                         onChange={formik.handleChange}
-                                        placeholder="Passport ID"
+                                        placeholder="Паспорт номер"
                                         iconClassName="bx bx-id-card"
                                     />
                                     <article className="input-field">
@@ -98,7 +98,7 @@ export default function AddCat() {
                                             onChange={formik.handleChange}
                                         >
                                             {Object.values(CatStatus).map((status) => (
-                                                <option value={status} key={status}>{status}</option>
+                                                <option value={status} key={status}>{status === "lost" ? "Изгубен" : "Намерен"}</option>
                                             ))}
                                         </select>
                                         <i className="bx bxs-info-square" />
@@ -110,7 +110,7 @@ export default function AddCat() {
                                         name="area"
                                         value={formik.values.area}
                                         onChange={formik.handleChange}
-                                        placeholder="Area"
+                                        placeholder="Място"
                                         iconClassName="bx bx-map"
                                     /> 
                                 </section>
@@ -129,7 +129,7 @@ export default function AddCat() {
                                 </article>
 
                                 <FormSubmitButton
-                                    text="Add cat"
+                                    text="Добави"
                                     disabled={isSubmitting}
                                 />
                             </form>
@@ -137,9 +137,9 @@ export default function AddCat() {
                     </Formik>
                 ) : (
                     <section className="not-authenticated-message">
-                        <h1>You need registration to add cats!</h1>
+                        <h1>Нужна е регистрация, за да добавите котка!</h1>
                         <p>
-                            Go to <Link href="/register">Register</Link>!
+                            Отиде на <Link href="/register">регистрация</Link>!
                         </p>
                     </section>
                 )}

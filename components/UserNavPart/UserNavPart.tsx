@@ -14,7 +14,7 @@ const UserNavPart = ({ handleLinkClick }: { handleLinkClick: MouseEventHandler})
         return (
             <>
                 <li>
-                    <Link onClick={handleLinkClick} href="/profile">Profile</Link>
+                    <Link onClick={handleLinkClick} href="/profile">Профил</Link>
                 </li>
                 <li>
                     <LogOut />
@@ -26,10 +26,10 @@ const UserNavPart = ({ handleLinkClick }: { handleLinkClick: MouseEventHandler})
     return (
         <>
             <li>
-                <Link onClick={handleLinkClick} href="/register">Register</Link>
+                <Link onClick={handleLinkClick} href="/register">Регистрация</Link>
             </li>
             <li>
-                <Link onClick={handleLinkClick} href="/login">Log In</Link>
+                <Link onClick={handleLinkClick} href="/login">Вход</Link>
             </li>
         </>
     );

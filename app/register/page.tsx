@@ -66,21 +66,21 @@ export default function Register() {
                 >
                     {(formik) => (
                         <form onSubmit={formik.handleSubmit}>
-                            <h1>Registration</h1>
+                            <h1>Регистрация</h1>
 
                             <section className="input-section">
                                 <InputField
                                     name="firstName"
                                     value={formik.values.firstName}
                                     onChange={formik.handleChange}
-                                    placeholder="First Name"
+                                    placeholder="Име"
                                     iconClassName="bx bxs-user"
                                 />
                                 <InputField
                                     name="lastName"
                                     value={formik.values.lastName}
                                     onChange={formik.handleChange}
-                                    placeholder="Last Name"
+                                    placeholder="Фамилия"
                                     iconClassName="bx bxs-user"
                                 />
                             </section>
@@ -90,14 +90,14 @@ export default function Register() {
                                     name="email"
                                     value={formik.values.email}
                                     onChange={formik.handleChange}
-                                    placeholder="Email"
+                                    placeholder="И-мейл"
                                     iconClassName="bx bxs-envelope"
                                 />
                                 <InputField
                                     name="phoneNumber"
                                     value={formik.values.phoneNumber}
                                     onChange={formik.handleChange}
-                                    placeholder="Phone Number"
+                                    placeholder="Телефон за връзка"
                                     iconClassName="bx bxs-phone"
                                 />
                             </section>
@@ -107,7 +107,7 @@ export default function Register() {
                                     name="password"
                                     value={formik.values.password}
                                     onChange={formik.handleChange}
-                                    placeholder="Password"
+                                    placeholder="Парола"
                                     iconClassName="bx bxs-lock-alt"
                                     type="password"
                                 />
@@ -115,7 +115,7 @@ export default function Register() {
                                     name="confirmPassword"
                                     value={formik.values.confirmPassword}
                                     onChange={formik.handleChange}
-                                    placeholder="Confirm Password"
+                                    placeholder="Потвърди паролата"
                                     iconClassName="bx bxs-lock-alt"
                                     type="password"
                                 />
@@ -127,14 +127,17 @@ export default function Register() {
                                     checked={isAgreed}
                                     onChange={handleAgreeChange}
                                 />
-                                I agree with site&apos;s{" "}
+                                Съгласявам се с 
+                                {" "}
                                 <Link href="/terms-conditions" onClick={handleTermsClick(formik.values)}>
-                                    Terms and Conditions
+                                    Условията
                                 </Link>
+                                {" "}
+                                на сайта!
                             </label>
 
                             <FormSubmitButton
-                                text="Register"
+                                text="Регистриране"
                                 disabled={isSubmitting}
                             />
                         </form>

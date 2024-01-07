@@ -16,7 +16,7 @@ export const loginUser = async (
 };
 
 export const getUserInfo = async (token: Token): Promise<ProfileInfo> => {
-    const response = await axios.get(USER_URL, {
+    const response = await axios.get<ProfileInfo>(USER_URL, {
         headers: {
             Authorization: `Bearer ${token}`,
         },

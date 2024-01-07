@@ -1,4 +1,4 @@
-const HOST_URL: string = "https://daliraboti.chickenkiller.com"
+const HOST_URL: string = "https://real-estate-dev.crabdance.com"
 
 export const USER_REGISTER_URL = `${HOST_URL}/user/register-user`
 export const USER_LOGIN_URL = `${HOST_URL}/user/login-user`

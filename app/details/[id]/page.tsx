@@ -4,8 +4,8 @@ import axios from "axios";
 import Image from "next/image";
 
 const getCatDetails = async (id: string) => {
-    const response = await axios.get(`${CAT_DETAILS_URL}/${id}`);
-    const cat: CatResponse = response.data;
+    const response = await axios.get<CatResponse>(`${CAT_DETAILS_URL}/${id}`);
+    const cat = response.data;
     return cat;
 };
 

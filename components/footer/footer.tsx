@@ -6,21 +6,20 @@ const Footer = () => {
     return (
         <footer className={styles.footer}>
             <section>
-                <h3>About</h3>
+                <h3>За нас</h3>
                 <hr />
-                <p>Project information</p>
-                <p>Contact Us</p>
-                <p>For developers</p>
+                <p>Относно проекта</p>
+                <p>Контакт</p>
+                <p>За разработчици</p>
             </section>
             <section>
-                <h3>Information</h3>
+                <h3>Информация</h3>
                 <hr />
-                <p>How to post lost cat</p>
-                <p>How to post found cat</p>
-                <p><Link href="/search">Search by Microchip or Passport ID</Link></p>
+                <p>Как да добавим котка</p>
+                <p><Link href="/search">Търсене по номер на паспорт или микрочип</Link></p>
             </section>
             <section>
-                <h3>Connect with us</h3>
+                <h3>Свържете се с нас</h3>
                 <hr />
                 <p><i className="bx bxl-facebook-square" /> Facebook</p>
                 <p><i className="bx bxl-instagram-alt" /> Instagram</p>

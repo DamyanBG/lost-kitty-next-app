@@ -10,13 +10,13 @@ const CatCard = ({ photoUrl, catName, microchip, passportId, catId }: CatCardPro
         <article className="card-info">
             <h2>{catName}</h2>
             <br />
-            <p>Microchip: {microchip}</p>
+            <p>Микрочип: {microchip}</p>
             <br />
-            <p>Passport ID: {passportId}</p>
+            <p>Паспорт номер: {passportId}</p>
             <br />
 
             <Link className="" href={`/details/${catId}`}>
-                Details
+                Детайли
             </Link>
         </article>
     </section>

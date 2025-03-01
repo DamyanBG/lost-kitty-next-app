@@ -39,27 +39,27 @@ export default function Login() {
                 >
                     {(formik) => (
                         <form onSubmit={formik.handleSubmit}>
-                            <h1>Log In</h1>
+                            <h1>Вход</h1>
 
                             <section className="input-section">
                                 <InputField
                                     name="email"
                                     value={formik.values.email}
                                     onChange={formik.handleChange}
-                                    placeholder="Email"
+                                    placeholder="И-мейл"
                                     iconClassName="bx bxs-envelope"
                                 />
                                 <InputField
                                     name="password"
                                     value={formik.values.password}
                                     onChange={formik.handleChange}
-                                    placeholder="Password"
+                                    placeholder="Парола"
                                     iconClassName="bx bxs-lock-alt"
                                     type="password"
                                 />
                             </section>
 
-                            <FormSubmitButton text="Log In" disabled={isSubmitting} />
+                            <FormSubmitButton text="Влез" disabled={isSubmitting} />
                         </form>
                     )}
                 </Formik>

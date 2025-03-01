@@ -25,7 +25,7 @@ export default function Header() {
     return (
         <header className={styles.header}>
             <article className={styles.siteName}>
-                Lost Kitty
+                ИЗГУБЕНО КОТЕ
             </article>
             <article className={styles.hamburger} onClick={handleHamburgerClick}>
                 <article className={styles.line}></article>
@@ -35,16 +35,16 @@ export default function Header() {
             <nav className={navBarClassName}>
                 <ul>
                     <li>
-                        <Link onClick={handleLinkClick} className={styles.active} href="/">Home</Link>
+                        <Link onClick={handleLinkClick} className={styles.active} href="/">Начало</Link>
                     </li>
                     <li>
-                        <Link onClick={handleLinkClick} href="/lost">Lost cats</Link>
+                        <Link onClick={handleLinkClick} href="/lost">Изгубени котки</Link>
                     </li>
                     <li>
-                        <Link onClick={handleLinkClick} href="/found">Found cats</Link>
+                        <Link onClick={handleLinkClick} href="/found">Намерени котки</Link>
                     </li>
                     <li>
-                        <Link onClick={handleLinkClick} href="/add-cat">Add cat</Link>
+                        <Link onClick={handleLinkClick} href="/add-cat">Добави котка</Link>
                     </li>
                     <UserNavPart handleLinkClick={handleLinkClick} />
                 </ul>
